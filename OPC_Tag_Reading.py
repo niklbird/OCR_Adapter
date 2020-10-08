@@ -173,9 +173,10 @@ class OPC_Reader():
         self.standardLabel(self.master, 'Scan-Rate [ms]: ', 0, 4)
         input_2 = self.standardEntry(self.master, 1, 4)
         button = self.standardButton(self.master, 'Start Recording', self.startRecording, 0, 5)
-        button['command'] = lambda duration=input_1, scanInterval=input_2,\
-                                    label_config=(self.master, '', 1, 5), button_config=(self.master, '', 0, 6), lab_tags=label,lab_server=tmp_lab2: \
-                                    self.startRecording(duration, scanInterval, button, label_config, button_config, lab_tags, lab_server)
+        button['command'] = lambda duration=input_1, scanInterval=input_2, \
+                                   label_config=(self.master, '', 1, 5), button_config=(self.master, '', 0, 6),\
+                                   lab_tags=label, lab_server=tmp_lab2: \
+            self.startRecording(duration, scanInterval, button, label_config, button_config, lab_tags, lab_server)
 
     def scanOPCServer(self, listrow, listcol, label_config):
         """Scan the system for running OPC servers like KEPServerEx"""
@@ -511,7 +512,7 @@ class OPC_Reader():
             countMax = int(int(recordingTime_s) / scanInterval_s)
         count = 0
 
-        print('Recieving data ...')
+        print('Receiving data ...')
         exceptOccured = 0
         exceptCount = 0
         retryCount = 0
@@ -549,7 +550,8 @@ class OPC_Reader():
                         if ret == -1:
                             retryNec = 0
                             print('Origin restored')
-                            if permanent == 0: s.configure("Horizontal.TProgressbar", background='green')
+                            if permanent == 0:
+                                s.configure("Horizontal.TProgressbar", background='green')
                             self.master.update()
                             excludedTags = self.recordingErrors.append((count, []))
                         else:
@@ -631,7 +633,6 @@ class OPC_Reader():
             self.initConnection(opc, self.tagNames)
             lab_tags.config(text='[ ' + str(self.labelText_formated) + ' ]')
             return -1
-        newTags = []
         newTags = self.tagNames.copy()
         for i in range(0, len(faultyTags)):
             newTags.remove(faultyTags[i])
@@ -820,7 +821,6 @@ class OPC_Reader():
                         relief="groove", command=com)
         button.grid(column=co, row=ro)
         return button
-
 
 if __name__ == "__main__":
     'Main function of program'
