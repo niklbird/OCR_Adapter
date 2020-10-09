@@ -15,7 +15,7 @@ It was used to read data from Programmable Logic Controllers by Siemens and Omro
 In this use case KEPServerEX 6 was used to communicate with the PLCs, simultaneously running the adapter software to read the data directly from KEPServer and saving it locally.\
 It is not intended for long term data capturing but rather to record short batch processes. 
 
-**Installation**
+**Installation**\
 Python is required to run the software which can be installed from <https://www.python.org/downloads/>.
 Furthermore some python libraries are required:
 - OpenOPC: pip install OpenOPC 
