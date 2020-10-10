@@ -61,6 +61,6 @@ The programm is intended to be used as a tool to create a proof of concept / rea
 Since I developed it during an internship I do not have the resources to test for bugs in context of PLCs anymore.
 However if a bug in the general working of the program is found I will try my best to fix it.
 
-At last I want to thank the **Umicore AG & Co. KG Hanau** and the department I worked at for allowing me to make the program open-source.  
+At last I want to thank the **Umicore AG Hanau** and the department I worked at for allowing me to make the program open-source.  
 
 
